@@ -90,6 +90,8 @@
 ".\objects\stm32f4xx_hal_msp.o"
 ".\objects\stm32f4xx_it.o"
 ".\objects\system_stm32f4xx.o"
+".\objects\myiic.o"
+".\objects\oled.o"
 --strict --scatter ".\Objects\Oled.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

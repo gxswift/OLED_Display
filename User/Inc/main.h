@@ -41,7 +41,7 @@
   /* Includes ------------------------------------------------------------------*/
 
 /* USER CODE BEGIN Includes */
-
+#define HSE_VALUE    ((uint32_t)8000000U)
 /* USER CODE END Includes */
 
 /* Private define ------------------------------------------------------------*/

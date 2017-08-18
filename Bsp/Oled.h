@@ -1,6 +1,10 @@
 #ifndef __24CXX_H
 #define __24CXX_H
 #include "myiic.h" 
+#include "stm32f4xx_hal.h"
+
+typedef uint8_t u8;
+typedef uint16_t u16;
 
 #define	Brightness	0xCF 
 #define X_WIDTH 	128
@@ -28,6 +32,7 @@ void OLED_Clear(void) ;
 
 
 void OLED_Str(unsigned char x,unsigned char y,unsigned char* ch);
+void OLED_Test(void);
 #endif
 
 

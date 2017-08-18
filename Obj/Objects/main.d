@@ -28,3 +28,5 @@
 .\objects\main.o: ..\Lib\Inc\stm32f4xx_hal_pwr.h
 .\objects\main.o: ..\Lib\Inc\stm32f4xx_hal_pwr_ex.h
 .\objects\main.o: ..\User\Inc\gpio.h
+.\objects\main.o: ..\Bsp\Oled.h
+.\objects\main.o: ..\Bsp\myiic.h

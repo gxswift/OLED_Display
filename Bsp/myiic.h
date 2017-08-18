@@ -1,38 +1,25 @@
 #ifndef __MYIIC_H
 #define __MYIIC_H
-#include "sys.h"
-//////////////////////////////////////////////////////////////////////////////////	 
-//本程序只供学习使用，未经作者许可，不得用于其它任何用途
-//ALIENTEK战舰STM32开发板
-//IIC驱动 代码	   
-//正点原子@ALIENTEK
-//技术论坛:www.openedv.com
-//修改日期:2012/9/9
-//版本：V1.0
-//版权所有，盗版必究。
-//Copyright(C) 广州市星翼电子科技有限公司 2009-2019
-//All rights reserved									  
-//////////////////////////////////////////////////////////////////////////////////
-#define high 1
-#define low 0
 
 
-//IO方向设置
-#define SDA_IN()  {GPIOB->CRH&=0XFFFF0FFF;GPIOB->CRH|=8<<12;}
-#define SDA_OUT() {GPIOB->CRH&=0XFFFF0FFF;GPIOB->CRH|=3<<12;}
+#include "stm32f4xx_hal.h"
 
-//IO操作函数	 
-#define SCL    PBout(10) //SCL
-#define SDA    PBout(11) //SDA	 
-#define READ_SDA   PBin(11)  //输入SDA 
+
+
+#define SCL_L HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_RESET)
+#define SCL_H HAL_GPIO_WritePin(GPIOF, GPIO_PIN_7, GPIO_PIN_SET)
+#define SDA_L HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_RESET)
+#define SDA_H HAL_GPIO_WritePin(GPIOF, GPIO_PIN_8, GPIO_PIN_SET)
+
+
 void delay(unsigned int z);
 //IIC所有操作函数
 void IIC_Init(void);                //初始化IIC的IO口				 
 void IIC_Start(void);				//发送IIC开始信号
 void IIC_Stop(void);	  			//发送IIC停止信号
-void IIC_Send_Byte(u8 txd);			//IIC发送一个字节
-u8 IIC_Read_Byte(unsigned char ack);//IIC读取一个字节
-u8 IIC_Wait_Ack(void); 				//IIC等待ACK信号
+void IIC_Send_Byte(uint8_t txd);			//IIC发送一个字节
+uint8_t IIC_Read_Byte(unsigned char ack);//IIC读取一个字节
+uint8_t IIC_Wait_Ack(void); 				//IIC等待ACK信号
 void IIC_Ack(void);					//IIC发送ACK信号
 void IIC_NAck(void);				//IIC不发送ACK信号
 void Write_IIC_Byte(unsigned char IIC_Byte);
